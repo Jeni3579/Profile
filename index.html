@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Jeni Kadariya · Aspiring Social Media Marketer</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e1e1e;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+   
+    :root {
+      --wine: #4a0e1b;      
+      --wine-light: #6b1a2b;
+      --wine-soft: #f3e9eb;  
+      --gray-light: #f5f5f7;
+      --white: #ffffff;
+      --text-dark: #1c1c1c;
+      --text-soft: #2e2e2e;
+      --border-light: #e0d9db;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--wine);
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--wine);
+      border-radius: 20px;
+    }
+
+    .section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* header / nav — clean */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--wine);
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--wine);
+    }
+
+    /* HERO — dark wine background, white text */
+    .hero {
+      background: var(--wine);
+      color: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+    .hero .title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    .hero .tagline {
+      font-size: 1.25rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid var(--white);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline-light:hover {
+      background: var(--white);
+      color: var(--wine);
+    }
+
+    /* about — light wine tint background */
+    .about-wrap {
+      background: var(--wine-soft);
+      border-radius: 32px;
+      padding: 2.5rem;
+    }
+    .about-text {
+      font-size: 1.2rem;
+      max-width: 800px;
+      color: var(--text-soft);
+    }
+    .about-highlight {
+      color: var(--wine);
+      font-weight: 600;
+    }
+
+    /* SKILLS grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 1.8rem 1rem;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(74, 14, 27, 0.03);
+      transition: all 0.2s;
+    }
+    .skill-card:hover {
+      border-color: var(--wine);
+      box-shadow: 0 12px 20px -8px rgba(74, 14, 27, 0.12);
+    }
+    .skill-card span {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--wine);
+    }
+
+    /* DESIGN GALLERY SECTION - Fixed for 1000x1500 portrait */
+    .design-gallery {
+      margin: 3rem 0 1rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 0;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      transition: transform 0.2s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+    .gallery-image {
+      width: 100%;
+      aspect-ratio: 1000 / 1500;
+      background: var(--wine-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gallery-image img,
+    .gallery-image video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 1.2rem 1.5rem;
+    }
+    .gallery-caption h4 {
+      color: var(--wine);
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .gallery-caption p {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+    }
+
+    /* PORTFOLIO cards */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+    }
+    .project-card h3 {
+      color: var(--wine);
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+    }
+    .project-meta {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--wine-light);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    .project-desc {
+      color: var(--text-soft);
+    }
+
+    /* IDEA generation section — wine cards + white */
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .idea-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 1.8rem;
+      border-left: 8px solid var(--wine);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.02);
+      border: 1px solid var(--border-light);
+      border-left-width: 8px;
+    }
+    .idea-card h4 {
+      font-size: 1.4rem;
+      color: var(--wine);
+      margin-bottom: 1rem;
+    }
+    .idea-list {
+      list-style: none;
+    }
+    .idea-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--border-light);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .idea-list li:last-child {
+      border-bottom: none;
+    }
+    .bullet-wine {
+      color: var(--wine);
+      font-weight: bold;
+    }
+
+    /* contact */
+    .contact-block {
+      background: var(--wine-soft);
+      border-radius: 32px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .contact-email {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--wine);
+      text-decoration: none;
+      border-bottom: 2px dotted var(--wine);
+    }
+    .social-links {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      text-decoration: none;
+      color: var(--wine);
+      font-weight: 500;
+    }
+
+    /* upload note */
+    .upload-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--wine-soft);
+      border-radius: 50px;
+      color: var(--wine);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--white);
+      color: #4a4a4a;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.95rem;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero .title {
+        font-size: 1.3rem;
+      }
+      .section {
+        padding: 3rem 1.2rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      .idea-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-image {
+        aspect-ratio: 1000 / 1500;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Jeni Kadariya</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#gallery">Designs</a>
+    <a href="#work">Work</a>
+    <a href="#ideas">Ideas</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Jeni Kadariya</h1>
+    <div class="title">Aspiring Social Media Marketer</div>
+    <div class="tagline">Turning curiosity into scroll‑stopping content · strategy & paid ads mindset</div>
+    <a href="#contact" class="btn-outline-light">Let's boost something →</a>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <h2>About me</h2>
+  <div class="about-wrap">
+    <div class="about-text">
+      <p>👋 I'm Jeni — a <span class="about-highlight">fresher with big creative energy</span> and a serious passion for social media marketing. I don't have years of agency experience (yet!), but I've spent countless hours learning audience targeting, and what makes a post *saveable*. I geek out over CTR, ROAS, and well-written hooks — and I'm ready to bring that hunger to a real team.</p>
+      <p style="margin-top: 1.2rem;">📊 I believe in data-informed creativity. Whether it's writing a caption that stops the scroll or planning a mock ad campaign with a रू500 budget, I treat every project like a real business case. Let's build something that actually connects.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <h2>Skills & toolbox</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><span>📱 Content Creation</span></div>
+    <div class="skill-card"><span>🎨 Canva Design</span></div>
+    <div class="skill-card"><span>✍️ Caption Writing</span></div>
+    <div class="skill-card"><span>🔎 Hashtag Research</span></div>
+    <div class="skill-card"><span>📈 Trend Research</span></div>
+  </div>
+  <p style="margin-top: 1.5rem; color: #444;">➕ Google Skillshop (in progress) · Meta Blueprint coursework · Excel/Sheets for reporting</p>
+</section>
+
+<section id="gallery" class="section">
+  <h2>🎨 My Canva Designs</h2>
+  <p style="margin-bottom: 0.5rem; color: var(--text-soft); font-size: 1.1rem;">A collection of social media graphics I've created — clean, bold, and brand‑focused.</p>
+  
+  <div class="design-gallery">
+    <div class="gallery-grid">
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <img src="brunch.png" alt="Café Brunch Promo">
+        </div>
+        <div class="gallery-caption">
+          <h4>Café Brunch Promo</h4>
+          <p>Minimalist food post with warm tones and bold typography.</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <video src="Q&A.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="gallery-caption">
+          <h4>Q&A Story Template</h4>
+          <p>Interactive story background with soft gradients and clear CTA.</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <img src="skin.png" alt="Skincare Tips Carousel">
+        </div>
+        <div class="gallery-caption">
+          <h4>Skincare Tips Carousel</h4>
+          <p>Educational carousel slide with clean layout and pastel accents.</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <img src="product.png" alt="Product Launch Story">
+        </div>
+        <div class="gallery-caption">
+          <h4>Product Launch Story</h4>
+          <p>Countdown story design with bold typography and brand colors.</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <img src="quote.png" alt="Quote Card Template">
+        </div>
+        <div class="gallery-caption">
+          <h4>Quote Card Template</h4>
+          <p>Inspirational quote post with elegant serif font and soft background.</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <div class="gallery-image">
+          <img src="sale.png" alt="Sale Announcement">
+        </div>
+        <div class="gallery-caption">
+          <h4>Sale Announcement</h4>
+          <p>Bold promotional graphic with clear discount messaging.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="upload-note">
+  </div>
+</section>
+
+<section id="work" class="section">
+  <h2>Sample projects</h2>
+  <div class="portfolio-grid">
+    <div class="project-card">
+      <div class="project-meta">Instagram strategy</div>
+      <h3>Urban Grind Café</h3>
+      <p class="project-desc">Mock ad campaign: "Weekend Brunch Launch". Audience split (cold/warm), A/B test plan, projected CPC रू17.50 — budget रू6,000. Designed to lower cost per click via retargeting.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-meta">Content concept</div>
+      <h3>Sustainable Style Co.</h3>
+      <p class="project-desc">Fictional slow‑fashion brand. Created 3 feed post ideas + Reel hooks: "5 ways to style one linen shirt". Hashtag strategy around #ConsciousCloset.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-meta">Branding + audit</div>
+      <h3>Glow Up Skincare</h3>
+      <p class="project-desc">Instagram audit (before/after). Optimised bio, highlight covers, and a 30‑day content calendar. Mock engagement boost: 1.2% → 3.8%.</p>
+    </div>
+    <div class="project-card">
+      <div class="project-meta">Paid media simulation</div>
+      <h3>FitFuel (fitness app)</h3>
+      <p class="project-desc">Mock campaign structure: Prospecting vs Retargeting ad sets. Focus on CTR & frequency. Report mockup with CPC reduction.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ideas" class="section">
+  <h2>🧠 Idea lab · hooks & campaigns</h2>
+  <div class="idea-grid">
+    <div class="idea-card">
+      <h4>📋 Content ideas</h4>
+      <ul class="idea-list">
+        <li><span class="bullet-wine">◆</span> "Day in the life" of a small biz owner (Reel)</li>
+        <li><span class="bullet-wine">◆</span> Carousel: 3 myths about [industry] debunked</li>
+        <li><span class="bullet-wine">◆</span> "This or That" story polls for product feedback</li>
+        <li><span class="bullet-wine">◆</span> Behind‑the‑scenes of packaging orders</li>
+        <li><span class="bullet-wine">◆</span> UGC roundup: real customers using the product</li>
+      </ul>
+    </div>
+    <div class="idea-card">
+      <h4>🎯 Campaign ideas</h4>
+      <ul class="idea-list">
+        <li><span class="bullet-wine">◆</span> #MyMorningRoutine (branded hashtag challenge)</li>
+        <li><span class="bullet-wine">◆</span> "5 days, 5 tips" educational series</li>
+        <li><span class="bullet-wine">◆</span> Limited drop teaser with countdown stickers</li>
+        <li><span class="bullet-wine">◆</span> Partner with micro‑influencer for honest review</li>
+        <li><span class="bullet-wine">◆</span> "Comment your fave emoji for a DM discount"</li>
+      </ul>
+    </div>
+    <div class="idea-card">
+      <h4>✍️ Caption examples</h4>
+      <ul class="idea-list">
+        <li><span class="bullet-wine">◆</span> "POV: you finally found a skincare routine that doesn't break the bank. 🫶"</li>
+        <li><span class="bullet-wine">◆</span> "we heard you like iced coffee … so we made it even smoother. ☕️"</li>
+        <li><span class="bullet-wine">◆</span> "Send this to the friend who needs a self‑care Sunday."</li>
+      </ul>
+    </div>
+    <div class="idea-card">
+      <h4>🪝 Hooks that work</h4>
+      <ul class="idea-list">
+        <li><span class="bullet-wine">◆</span> "Stop scrolling if you want better engagement."</li>
+        <li><span class="bullet-wine">◆</span> "I tried posting at 6am for a week — here's what happened."</li>
+        <li><span class="bullet-wine">◆</span> "The one metric most small businesses ignore."</li>
+        <li><span class="bullet-wine">◆</span> "Why your boosted post isn't converting (and how to fix it)."</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Let's connect</h2>
+  <div class="contact-block">
+    <a href="mailto:kadariyajennie35793579@gmail.com" class="contact-email">kadariyajennie35793579@gmail.com</a>
+    <div class="social-links">
+      <a href="https://www.instagram.com/__oggyie_/" target="_blank">📸 Instagram</a>
+      <a href="https://www.linkedin.com/in/jeni-kadariya-0620a2279" target="_blank">💼 LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Jeni Kadariya — Aspiring Social Media Marketer</p>
+  <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with dark wine & intention · ready for the next step</p>
+</footer>
+
+<script>
+  (function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
